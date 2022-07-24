@@ -7,27 +7,12 @@
     import TiArrowLeft from 'svelte-icons/ti/TiArrowLeft.svelte';
 	import SidebarIcon from './sidebar-icon.svelte';
 
-    let expanded:boolean = false;
-
-    $: outerWidth = 0
-
-    $: {
-        if(outerWidth < 1280){
-            expanded = false;
-        }
-    }
-
-    function toggle(){
-        if(outerWidth > 1280){
-            expanded = !expanded;
-        }
-    }
+    export let expanded:boolean = false;
+    export let toggle:any;
 </script>
 
-<svelte:window bind:outerWidth/>
-
 <div
-	class="relative h-screen {expanded ? 'w-1/6' : 'w-16'} flex flex-col justify-between m-0 left-0
+	class="fixed h-screen {expanded ? 'w-64' : 'w-16'} flex flex-col justify-between m-0 left-0
         bg-gray-900 text-white animate-ease-in-out-200"
 >
 	<div class="flex flex-col">
